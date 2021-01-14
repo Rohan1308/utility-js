@@ -1,5 +1,5 @@
 
-const max = require('./min');
+const min = require('./min');
 
 describe('Min', () => {
 
