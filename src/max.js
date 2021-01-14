@@ -1,16 +1,22 @@
+
 const max = (list) => {
 	let len = list.length;
 	if (len == 0) {
 		return [];
 	}
-	ans = list[0];
-	for(let i = 0; i < len; i++) {
-		if(list[i] > ans) {
-			ans = list[i];
-		}
+
+	if (len == 1) {
+		return list[0];
 	}
 
-	return ans;
+	candidate1 = list[0];
+	candidate2 = max(list.slice(1,len));
+	
+	if (candidate1 > candidate2) {
+		return candidate1;
+	}
+
+	return candidate2;
 }
 
 module.exports = max;
