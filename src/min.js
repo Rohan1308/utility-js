@@ -1,16 +1,24 @@
+
+const tail = require('./tail');
+
 const min = (list) => {
 	let len = list.length;
-	if (len == 0) {
+	
+	if (len == 0) 
 		return [];
-	}
-	ans = list[0];
-	for(let i = 0; i < len; i++) {
-		if(list[i] < ans) {
-			ans = list[i];
-		}
-	}
-
-	return ans;
+	
+	if (len == 1) 
+		return list[0];
+	
+	let candidate1 = list[0];
+	let candidate2 = min(tail(list));
+	
+	
+	if (candidate1 < candidate2)
+		return candidate1;
+	else 
+		return candidate2;
+	
 }
 
 module.exports = min;
